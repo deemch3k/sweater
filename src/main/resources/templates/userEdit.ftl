@@ -1,10 +1,10 @@
-<#import "parts/common.ftl" as C>
+<#import "parts/common.ftl" as c>
 
-<@C.page>
-User Editor
+<@c.page>
+User editor
 
 <form action="/user" method="post">
-    <input type="text" value="${user.username}" name="username">
+    <input type="text" name="username" value="${user.username}">
     <#list roles as role>
         <div>
             <label><input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>${role}</label>
@@ -14,4 +14,4 @@ User Editor
     <input type="hidden" value="${_csrf.token}" name="_csrf">
     <button type="submit">Save</button>
 </form>
-</@C.page>
+</@c.page>
